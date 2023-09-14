@@ -32,6 +32,15 @@ async def create_user(payload: dict = Body(...)):
 
 @app.on_event("startup")
 async def start_up():
+    ####### POSTGRES #######
+    # await Tortoise.init(
+    #    db_url=f'asyncpg://DB_USER:DB_PASSWORD'
+    #           f'@DB_HOST:DB_PORT/DB_NAME',
+    #    modules={
+    #        'models': ['models']
+    #    }
+    # )
+    #######################
     await Tortoise.init(
         db_url='sqlite://db.sqlite3',
         modules={
